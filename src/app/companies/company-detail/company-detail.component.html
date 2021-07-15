@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{ selectedCompany.name }}</h1>
+  </div>
+</div>
+<table>
+  <tbody>
+    <tr>
+      <th>
+        <label> URL : </label>
+      </th>
+      <th>
+        <a href="{{ selectedCompany.url }}">{{ selectedCompany.url }}</a>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <label> CEO : </label>
+      </th>
+      <th>
+        {{ selectedCompany.ceo }}
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <label> Turn over : </label>
+      </th>
+      <th>{{ selectedCompany.turnOver }} {{ selectedCompany.currencyCode }}</th>
+    </tr>
+    <tr>
+      <th>
+        <label> Listed in : </label>
+      </th>
+      <th>
+        {{ selectedCompany.stockExchange }}
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <div class="row">
+        <div class="col-xs-12">
+          Please select dates to see stock details for the company:
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <label for="start">Start date: </label>
+        <input
+          type="date"
+          id="start"
+          name="start"
+          ngModel
+          required
+          pattern="\d{4}-\d{2}-\d{2}"
+        />
+      </div>
+      <div class="col-xs-6">
+        <label for="end">End date: </label>
+
+      <input
+        type="date"
+        id="end"
+        name="end"
+        ngModel
+        required
+        pattern="\d{4}-\d{2}-\d{2}"
+      />
+    </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-stock-item></app-stock-item>
+<!-- <div class="row">
+  <div class="col-xs-12">
+      <div class="btn-group" appDropdown>
+          <button
+          type="button"
+          class="btn btn-primary dropdown-toggle" >
+          Manage Recipe
+          <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+              <li><a (click)=addToShoppingList()>To Shopping List</a></li>
+              <li><a [routerLink]="['edit']">Edit Recipe</a></li>
+              <li (click)="onDeleteRecipe()"><a>Delete Recipe</a></li>
+          </ul>
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+     {{ selectedCompany }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+      <ul class="list-group">
+          <li class=" list-group-item"
+          *ngFor="let ingrediant of selectedItem.ingrediants">
+              {{ingrediant.name}} {{"("+ingrediant.amount+")"}}
+          </li>
+      </ul>
+  </div>
+</div> -->

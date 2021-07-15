@@ -1,0 +1,30 @@
+<div class="col-xs-12" *ngIf="stockDetails != null">
+  <div class="list-group-item clearfix">
+    <div class="pull-left">
+      <div class="row">
+        <div class="col-xs-6">
+          <label> Currency </label>
+          {{ stockDetails.currencyCode }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          <label> Minimum price </label>
+          {{ stockDetails.minPrice }}
+        </div>
+        <div class="col-xs-4">
+          <label> Maximum price </label>
+          {{ stockDetails.maxPrice }}
+        </div>
+        <div class="col-xs-3">
+          <label> Average price </label>
+          {{ stockDetails.avgPrice }}
+        </div>
+      </div>
+        <app-price
+          *ngFor="let price of stockDetails.priceList"
+          [item]="price">
+        </app-price>
+    </div>
+  </div>
+</div>
