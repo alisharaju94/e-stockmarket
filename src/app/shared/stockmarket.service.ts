@@ -17,7 +17,7 @@ export class StockmarketService {
   GET_COMPANIES_URL =
     'https://alisharaju94-eval-test.apigee.net/market/company/getAll';
   GET_STOCKS_URL =
-    'https://alisharaju94-eval-test.apigee.net/market/stock/';
+  'https://alisharaju94-eval-test.apigee.net/market/stock/';
   constructor(
     private httpClient: HttpClient,
     private companyService: CompanyService,
