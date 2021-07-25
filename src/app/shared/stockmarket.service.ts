@@ -5,19 +5,16 @@ import { map, tap } from 'rxjs/operators';
 import { CompanyService } from '../companies/company.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { Company } from '../companies/company.model';
 import { MarketRequest } from './market-request.model';
-import { Stocks } from '../stocks/stocks.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StockmarketService {
   GET_COMPANIES_URL =
-    'https://alisharaju94-eval-test.apigee.net/market/company/getAll';
+    'https://97y75pqdhd.execute-api.ap-south-1.amazonaws.com/prod/market/company/getAll';
   GET_STOCKS_URL =
-  'https://alisharaju94-eval-test.apigee.net/market/stock/';
+    'https://97y75pqdhd.execute-api.ap-south-1.amazonaws.com/prod/market/stock/';
   constructor(
     private httpClient: HttpClient,
     private companyService: CompanyService,
