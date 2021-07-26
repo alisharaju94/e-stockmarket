@@ -5,7 +5,6 @@ import { map, tap } from 'rxjs/operators';
 import { CompanyService } from '../companies/company.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MarketRequest } from './market-request.model';
 
 @Injectable({
   providedIn: 'root',
@@ -29,27 +28,16 @@ export class StockmarketService {
     );
   }
 
-  // fetchStocks(comCode: number) {
-  //   return this.httpClient.get<Stocks>(this.GET_STOCKS_URL+comCode).pipe(
-  //     tap((data) => {
-  //         this.stockService.setStocks(data.)
-  //     })
-  //   );
-  // }
-
   getStocksFortheRange(comCode: string, startDate: string, endDate: string) {
     const params = new HttpParams({
-      fromString: 'strtDate='+startDate+'&endDate='+endDate
+      fromString: 'strtDate=' + startDate + '&endDate=' + endDate,
     });
-    return this.httpClient.get<StockRangeDetails>(this.GET_STOCKS_URL+comCode, {params: params}).pipe(
-      tap(data => {
-        this.stockService.setStocks(data);
-      })
-    )
-  }
-
-  onRegisterCompany(item: MarketRequest) {
-    // this.ingredients.push(item);
-    // this.updatedIngrediantList.next(this.ingredients.slice());
+    return this.httpClient
+      .get<StockRangeDetails>(this.GET_STOCKS_URL + comCode, { params: params })
+      .pipe(
+        tap((data) => {
+          this.stockService.setStocks(data);
+        })
+      );
   }
 }

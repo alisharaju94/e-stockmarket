@@ -15,9 +15,4 @@ export class CompaniesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onNewCompany() {
-    this.router.navigate(['new'], {relativeTo: this.route});
-  }
-
 }
